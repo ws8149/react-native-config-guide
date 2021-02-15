@@ -1,5 +1,10 @@
 ## Android Setup Part I: Gradle Setup
 
+Note: 
+This guide is made 15/2/2021, it may be outdated by the time you read this.
+At the time of writing, the react-native version I used was 0.63.
+
+
 ```
 $ yarn add react-native-config
 ```
