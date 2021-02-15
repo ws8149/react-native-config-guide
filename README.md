@@ -1,29 +1,27 @@
 ## Android Setup Part I: Gradle Setup
 
-Install the package:
 ```
 $ yarn add react-native-config
 ```
- -  
+ 
 
-	**android/settings.gradle**
-	Add this below rootProject variable:
-	```diff
-	+ include ':react-native-config'
-	+ project(':react-native-config').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-config/android')
-	```
-	**android/app/build.gradle**
-	At 2nd line, add this line:
-    ```diff
-    + apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
-    ```
-    At dependencies, add this line:
-	```diff
-	dependencies {
-		implementation "com.facebook.react:react-native:+"  // From node_modules
-	+	implementation project(':react-native-config')
-	}
-	```
+**android/settings.gradle**
+```diff
++ include ':react-native-config'
++ project(':react-native-config').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-config/android')
+```
+
+**android/app/build.gradle**
+```diff
++ apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+```
+
+```diff
+dependencies {
+	implementation "com.facebook.react:react-native:+"  // From node_modules
++	implementation project(':react-native-config')
+}
+```
 
 ## Basic Usage
 Create a new file `.env` in the root of your React Native app, add anything you like eg:
