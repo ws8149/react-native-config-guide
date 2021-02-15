@@ -58,11 +58,11 @@ defaultConfig {
 }
 ```
 
-Also, in **android/app/build.gradle**, add this below buildTypes
+Also, in **android/app/build.gradle**, add flavorDimension code below buildTypes eg:
 ```
-buildTypes {
+buildTypes { 
     ...
-}
+} 
 
 flavorDimensions "default"  
 
