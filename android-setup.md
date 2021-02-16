@@ -85,10 +85,10 @@ flavorDimensions "default"
         }
     }
 ```
-Modify **strings.xml**
+Modify **strings.xml** 
 ```diff
     - <string name="app_name">your_app_name</string>
-    + <string name="app_name">@string/ANDROID_APP_NAME</string>
+    + <string name="app_name">@string/YOUR_ENV_VAR_HERE</string>
 ```
 Add the following commands to **package.json**
 ```
