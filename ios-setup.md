@@ -28,9 +28,9 @@ Config.API_URL; // 'https://myapi.com'
 Config.GOOGLE_MAPS_API_KEY; // 'abcdefgh'
 ```
 
-Run your app with this command
+Run your app with this command and check if your .env file can be read 
 ```
-TODO
+ENVFILE=.env react-native run-ios
 ```
 
 #### IOS Setup Part II: Flavoring
@@ -55,7 +55,7 @@ ios/tmp.xcconfig
 4. go to project settings
 5. apply config to your configurations
    ![img](./readme-pics/3.ios_apply_config.png)
-6. Go to _Edit scheme..._ -> _Build_ -> _Pre-actions_, click _+_ and select _New Run Script Action_. Paste below code which will generate "tmp.xcconfig" before each build exposing values to Build Settings and Info.plist. Make sure to select your target under _Provide build settings from_, so `$SRCROOT` environment variables is available to the script. (Note that this snippet has to be placed after "cp ... \${PROJECT_DIR}/../.env" if [approach explained below](#ios-multi-scheme) is used).
+6. GIn the Xcode menu, go to Product > Scheme > Edit Scheme -> _Build_ -> _Pre-actions_, click _+_ and select _New Run Script Action_. Paste below code which will generate "tmp.xcconfig" before each build exposing values to Build Settings and Info.plist. Make sure to select your target under _Provide build settings from_, so `$SRCROOT` environment variables is available to the script. (Note that this snippet has to be placed after "cp ... \${PROJECT_DIR}/../.env" if [approach explained below](#ios-multi-scheme) is used).
 
    ```
    "${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb" "${SRCROOT}/.." "${SRCROOT}/tmp.xcconfig"
@@ -63,8 +63,7 @@ ios/tmp.xcconfig
 
    ![img](./readme-pics/4.ios_pre_actions.png)
 
-7. You can now access your env variables in the Info.plist, for example `$(MY_ENV_VARIABLE)`. If you face issues accessing variables, please open a new issue and provide as much details as possible so above steps can be improved.
-
+7. You can now access your env variables in the Info.plist, for example `$(MY_ENV_VARIABLE)`.
 
 Create a new scheme:
 
@@ -83,12 +82,17 @@ Then edit the newly created scheme to make it use a different env file. From the
   ```
 Also ensure that "Provide build settings from", just above the script, has a value selected so that PROJECT_DIR is set.
 
-Paste this into package.json
+Add these shortcut commands into package.json
 ```
-TODO
+"scripts": {
+    ...    
+    "ios-sdev": "react-native run-ios --scheme \"your scheme name here\"",
+    "ios-ssb": "react-native run-ios --scheme \"your scheme name here\"",
+    "ios-sprod": "react-native run-ios --scheme \"your scheme name here\"",    
+  },
 ```
 
-Run your app with this command
+Try running your app with a package.json command
 ```
-TODO
+ yarn ios-sdev
 ```
