@@ -1,4 +1,5 @@
 ## Setup IOS Part I: Basics
+Note: This guide is only for react-native 0.6+
 
 Install the package:
 
@@ -65,7 +66,7 @@ ios/tmp.xcconfig
 
 7. You can now access your env variables in the Info.plist, for example `$(MY_ENV_VARIABLE)`.
 
-Create a new scheme:
+8.Create a new scheme:
 
 - In the Xcode menu, go to Product > Scheme > Edit Scheme
 - Click Duplicate Scheme on the bottom
@@ -96,3 +97,15 @@ Try running your app with a package.json command
 ```
  yarn ios-sdev
 ```
+
+## Display app name based on scheme used
+
+Define app name variable in .env file
+```
+APP_NAME=your app name
+```
+
+On Xcode, go to info.plist, assign the variable you defined to `Bundle Display Name`
+
+
+
