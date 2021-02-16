@@ -93,12 +93,7 @@ Add these shortcut commands into package.json
   },
 ```
 
-Try running your app with a package.json command
-```
- yarn ios-sdev
-```
-
-##### Display app name based on scheme used
+9. Configure app name based on .env file
 
 Define app name variable in .env file
 ```
@@ -106,6 +101,13 @@ APP_NAME=your app name
 ```
 
 On Xcode, go to info.plist, assign the variable you defined to `Bundle Display Name`
+
+10. Finally, try running your app with a package.json command
+```
+ yarn ios-sdev
+```
+
+
 
 
 
