@@ -34,7 +34,7 @@ Run your app with this command and check if your .env file can be read
 ENVFILE=.env react-native run-ios
 ```
 
-#### IOS Setup Part II: Flavoring
+## IOS Setup Part II: Flavoring
 
 1. click on the file tree and create new file of type XCConfig
    ![img](./readme-pics/1.ios_new_file.png)
@@ -98,7 +98,7 @@ Try running your app with a package.json command
  yarn ios-sdev
 ```
 
-## Display app name based on scheme used
+##### Display app name based on scheme used
 
 Define app name variable in .env file
 ```
