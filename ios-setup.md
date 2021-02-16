@@ -1,4 +1,4 @@
-## Setup IOS Part I: Basics
+## IOS Setup Part I: Basics
 Note: This guide is only for react-native 0.6+
 
 Install the package:
